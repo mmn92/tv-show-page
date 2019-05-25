@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/*
+  This component renders a single button on the tab menu
+  It receives the onClick function as a prop and uses it
+  to notify its parent when it's clicked
+*/
 export const Tab = props => {
   const onClick = () => {
     props.onClick(props.label);

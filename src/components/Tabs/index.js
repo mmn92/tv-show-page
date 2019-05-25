@@ -31,7 +31,7 @@ export default class Tabs extends Component {
 
   render() {
     return (
-      <div className={this.props.tabClass}>
+      <div className={this.props.tabsClass}>
         <ol className='tabs__list'>
           {this.props.children.map(child => {
             const { label } = child.props;
