@@ -16,6 +16,8 @@ export default class Accordion extends Component {
     this.state = {
       openSection: {}
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick = sectionLabel => {

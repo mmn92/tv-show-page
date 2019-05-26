@@ -15,12 +15,20 @@ export default class Tabs extends Component {
     this.state = {
       activeTab: ''
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      activeTab: this.props.children[0].props.label
-    });
+    if (Array.isArray(this.props.children)) {
+      this.setState({
+        activeTab: this.props.children[0].props.label
+      });
+    } else {
+      this.setState({
+        activeTab: this.props.children.props.label
+      });
+    }
   }
 
   handleClick = tabLabel => {
@@ -33,24 +41,35 @@ export default class Tabs extends Component {
     return (
       <div className={this.props.tabsClass}>
         <ol className='tabs__list'>
-          {this.props.children.map(child => {
-            const { label } = child.props;
-            return (
-              <Tab
-                activeTab={this.state.activeTab}
-                key={label}
-                label={label}
-                onClick={this.handleClick}
-              />
-            );
-          })}
+          {Array.isArray(this.props.children) ? (
+            this.props.children.map(child => {
+              const { label } = child.props;
+              return (
+                <Tab
+                  activeTab={this.state.activeTab}
+                  key={label}
+                  label={label}
+                  onClick={this.handleClick}
+                />
+              );
+            })
+          ) : (
+            <Tab
+              activeTab={this.state.activeTab}
+              key={this.props.children.props.label}
+              label={this.props.children.props.label}
+              onClick={this.handleClick}
+            />
+          )}
         </ol>
         <div className='tabs__content'>
-          {this.props.children.filter(child =>
-            child.props.label === this.state.activeTab
-              ? child.props.children
-              : undefined
-          )}
+          {Array.isArray(this.props.children)
+            ? this.props.children.filter(child =>
+                child.props.label === this.state.activeTab
+                  ? child.props.children
+                  : undefined
+              )
+            : this.props.children.props.children}
         </div>
       </div>
     );
@@ -58,6 +77,5 @@ export default class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-  children: PropTypes.instanceOf(Array).isRequired,
   tabsClass: PropTypes.string.isRequired
 };
