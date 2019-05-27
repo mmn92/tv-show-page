@@ -32,22 +32,25 @@ export default class Accordion extends Component {
   render() {
     return (
       <div className={this.props.accordionClass}>
-        {this.props.children.map(child => (
-          <AccordionSection
-            isOpen={!!this.state.openSection[child.props.label]}
-            label={child.props.label}
-            key={child.props.label}
-            onClick={this.handleClick}
-          >
-            {child.props.children}
-          </AccordionSection>
-        ))}
+        {this.props.children.map(child =>
+          child ? (
+            <AccordionSection
+              isOpen={!!this.state.openSection[child.props.label]}
+              label={child.props.label}
+              key={child.props.label}
+              onClick={this.handleClick}
+            >
+              {child.props.children}
+            </AccordionSection>
+          ) : (
+            undefined
+          )
+        )}
       </div>
     );
   }
 }
 
 Accordion.propTypes = {
-  children: PropTypes.instanceOf(Object).isRequired,
   accordionClass: PropTypes.string.isRequired
 };

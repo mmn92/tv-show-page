@@ -6,6 +6,10 @@ import Accordion from './components/Accordion';
 
 import './temp/tempcss.css';
 
+/*
+  This is the main component of the application, it renders all the tabs and accordion menus.
+  All the API calls are made from this component, which holds the information in its state
+*/
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +58,41 @@ export default class App extends Component {
       .catch(err => console.log(err));
   }
 
-  renderSeasons() {}
+  renderSeasons() {
+    const episodes = this.state.episodes.filter(episode => episode !== null);
+    const episodesObj = [];
+    let seasons = 0;
+    if (episodes.length < 1) {
+      return undefined;
+    }
+    episodes.map(episode => {
+      if (episode !== null && episode !== undefined) {
+        if (episode.SeasonNumber > seasons) seasons++;
+      }
+    });
+    for (let i = 0; i < seasons; i++) {
+      episodesObj.push(
+        <Accordion accordionClass='accordion' label={`Season ${i + 1}`} key={i}>
+          {episodes
+            .filter(episode =>
+              episode ? episode.SeasonNumber === i + 1 : undefined
+            )
+            .map(episode => (
+              <div label={episode.Title} key={episode.ID}>
+                <div className='episode__synopsis'>{episode.Synopsis}</div>
+                <div className='episode__image'>
+                  <img
+                    src={episode.Image}
+                    alt={`Episode ${episode.EpisodeNumber}`}
+                  />
+                </div>
+              </div>
+            ))}
+        </Accordion>
+      );
+    }
+    return episodesObj;
+  }
 
   render() {
     return (
@@ -70,40 +108,11 @@ export default class App extends Component {
           </header>
           <main>
             <Tabs tabsClass='main__tabs'>
-              <Accordion accordionClass='accordion' label='Season 1'>
-                <div
-                  label={
-                    this.state.episodes[0]
-                      ? this.state.episodes[0].Title
-                      : 'title'
-                  }
-                >
-                  <p>Paragraph inside first section</p>
+              {this.renderSeasons() || (
+                <div label='Season 1' key='default'>
+                  Synopsis
                 </div>
-                <div
-                  label={
-                    this.state.episodes[1]
-                      ? this.state.episodes[1].Title
-                      : 'title2'
-                  }
-                >
-                  <p>Paragraph inside second section</p>
-                </div>
-                <div label='Third Section'>
-                  <p>Paragraph inside third section</p>
-                </div>
-              </Accordion>
-              <Accordion accordionClass='accordion' label='Season 2'>
-                <div label='First Section 2'>
-                  <p>Paragraph inside first section 2</p>
-                </div>
-                <div label='Second Section 2'>
-                  <p>Paragraph inside second section 2</p>
-                </div>
-                <div label='Third Section 2'>
-                  <p>Paragraph inside third section 2</p>
-                </div>
-              </Accordion>
+              )}
             </Tabs>
           </main>
         </div>

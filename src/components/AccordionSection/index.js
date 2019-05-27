@@ -30,7 +30,6 @@ export const AccordionSection = props => {
 };
 
 AccordionSection.propTypes = {
-  children: PropTypes.instanceOf(Object).isRequired,
   isOpen: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
