@@ -7,17 +7,13 @@ import PropTypes from 'prop-types';
   to notify its parent when it's clicked
 */
 export const Tab = props => {
-  const onClick = () => {
-    props.onClick(props.label);
-  };
-
   let className = 'tabs__btn';
 
   if (props.activeTab === props.label) {
     className += ' tabs__btn--clicked';
   }
   return (
-    <li className={className} onClick={onClick}>
+    <li className={className} onClick={props.onClick}>
       {props.label}
     </li>
   );

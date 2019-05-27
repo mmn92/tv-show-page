@@ -25,6 +25,7 @@ export default class App extends Component {
     };
   }
 
+  // The api requests are made inside this lifecycle method and the responses saved in the state
   componentDidMount() {
     axios
       .all([
@@ -61,15 +62,16 @@ export default class App extends Component {
   renderSeasons() {
     const episodes = this.state.episodes.filter(episode => episode !== null);
     const episodesObj = [];
-    let seasons = 0;
     if (episodes.length < 1) {
       return undefined;
     }
-    episodes.map(episode => {
-      if (episode !== null && episode !== undefined) {
-        if (episode.SeasonNumber > seasons) seasons++;
-      }
-    });
+
+    const seasons = episodes.reduce(
+      (acc, episode) =>
+        episode.SeasonNumber > acc ? episode.SeasonNumber : acc,
+      0
+    );
+
     for (let i = 0; i < seasons; i++) {
       episodesObj.push(
         <Accordion accordionClass='accordion' label={`Season ${i + 1}`} key={i}>

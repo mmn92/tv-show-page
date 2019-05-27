@@ -16,8 +16,6 @@ export default class Accordion extends Component {
     this.state = {
       openSection: {}
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick = sectionLabel => {
@@ -38,7 +36,7 @@ export default class Accordion extends Component {
               isOpen={!!this.state.openSection[child.props.label]}
               label={child.props.label}
               key={child.props.label}
-              onClick={this.handleClick}
+              onClick={this.handleClick.bind(this, child.props.label)}
             >
               {child.props.children}
             </AccordionSection>

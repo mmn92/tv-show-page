@@ -15,8 +15,6 @@ export default class Tabs extends Component {
     this.state = {
       activeTab: ''
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -49,7 +47,7 @@ export default class Tabs extends Component {
                   activeTab={this.state.activeTab}
                   key={label}
                   label={label}
-                  onClick={this.handleClick}
+                  onClick={this.handleClick.bind(this, label)}
                 />
               );
             })
@@ -58,7 +56,10 @@ export default class Tabs extends Component {
               activeTab={this.state.activeTab}
               key={this.props.children.props.label}
               label={this.props.children.props.label}
-              onClick={this.handleClick}
+              onClick={this.handleClick.bind(
+                this,
+                this.props.children.props.label
+              )}
             />
           )}
         </ol>

@@ -8,10 +8,6 @@ import PropTypes from 'prop-types';
     when a section is clicked.
 */
 export const AccordionSection = props => {
-  const onClick = () => {
-    props.onClick(props.label);
-  };
-
   let className = 'accordion__section';
 
   if (props.isOpen) {
@@ -20,7 +16,7 @@ export const AccordionSection = props => {
 
   return (
     <div className={className}>
-      <div className='section__header' onClick={onClick}>
+      <div className='section__header' onClick={props.onClick}>
         {props.label}
         <div className='icon'>{!props.isOpen && 'ICON'}</div>
       </div>
