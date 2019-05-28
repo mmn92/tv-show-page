@@ -1,0 +1,31 @@
+@import colors
+
+$font-stack: 'Nunito', sans-serif
+
+*, *:before, *:after
+    box-sizing: border-box
+
+html *
+    font-family: $font-stack
+    color: $color-zero
+
+body
+    background-color: #ccc
+    overflow: hidden
+
+.background
+    background-repeat: no-repeat
+    background-position: center
+    position: absolute
+    background-size: cover
+    width: 100%
+    height: 100%
+
+.wrapper
+    background-image: linear-gradient(to top, color-black-opacity(0), color-black-opacity(0.65))
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100%
+

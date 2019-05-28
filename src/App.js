@@ -4,7 +4,7 @@ import axios from 'axios';
 import Tabs from './components/Tabs';
 import Accordion from './components/Accordion';
 
-import './temp/tempcss.css';
+import './styles/css/index.css';
 
 /*
   This is the main component of the application, it renders all the tabs and accordion menus.
@@ -59,6 +59,10 @@ export default class App extends Component {
       .catch(err => console.log(err));
   }
 
+  /*
+    This method handles the episodes received from the api and returns
+    the components ready to be rendered (tab and accordion menus).
+  */
   renderSeasons() {
     const episodes = this.state.episodes.filter(episode => episode !== null);
     const episodesObj = [];

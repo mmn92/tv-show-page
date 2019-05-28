@@ -1,0 +1,213 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html * {
+  font-family: "Nunito", sans-serif;
+  color: #FFFFFF;
+}
+
+body {
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+.background {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+.header__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 20%;
+  padding: 35px 50px;
+}
+.header__title h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #FFFFFF;
+}
+.header__title h2 {
+  font-size: 25px;
+  font-weight: 200;
+  color: #EEEEEE;
+}
+
+.main__tabs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 75%;
+  padding-top: 35px;
+}
+.main__tabs .tabs__list {
+  margin-left: 50px;
+}
+.main__tabs .tabs__btn {
+  display: inline-block;
+  padding: 20px 20px;
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 26px;
+}
+.main__tabs .tabs__btn--clicked {
+  border-bottom: 1px solid #CCCCCC;
+}
+.main__tabs .tabs__content {
+  position: relative;
+  right: -20px;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.accordion__section--open {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+.accordion__section--open .section__header {
+  border-left: solid 3px #CCCCCC;
+}
+.accordion__section--open .section__content {
+  padding-right: 100px;
+}
+
+.episode__synopsis {
+  font-size: 20px;
+  text-justify: justify;
+}
+
+.episode__image img {
+  max-width: 100%;
+  margin-top: 15px;
+}
+
+.section__header {
+  padding: 20px 20px;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.section__content {
+  padding: 35px 20px;
+}
+
+.icon {
+  float: right;
+}
+
+.footer__tabs {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+}
+.footer__tabs .tabs__list {
+  margin-left: 50px;
+}
+.footer__tabs .tabs__btn {
+  display: inline-block;
+  padding: 20px 20px;
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 700;
+}
+.footer__tabs .tabs__btn--clicked {
+  border-bottom: 1px solid #CCCCCC;
+}
+.footer__tabs .tabs__content {
+  padding-top: 2em;
+  padding-left: 50px;
+}
+
+.synopsis {
+  font-size: 25px;
+  text-align: justify;
+  color: #EEEEEE;
+  width: 50%;
+}
+
+.cast__element {
+  background-color: rgba(204, 204, 204, 0.1);
+  display: inline-block;
+  padding: 25px 35px;
+  margin-right: 20px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+.cast__element:hover {
+  background-color: rgba(204, 204, 204, 0);
+}
+
+/*# sourceMappingURL=index.css.map */
