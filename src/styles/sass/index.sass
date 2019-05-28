@@ -56,14 +56,29 @@
 
     .section__content
         padding-right: 100px
+        max-width: 80%
 
 .episode__synopsis
     font-size: 20px
     text-justify: justify
 
-.episode__image img
-    max-width: 100%
-    margin-top: 15px
+.episode__image 
+    position: relative
+
+    img
+        max-width: 100%
+        margin-top: 15px
+
+.episode__play
+    position: absolute
+    height: 30%
+    width: 30%
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -60%)
+
+    &:hover
+        cursor: pointer
 
 .section__header
     padding: 20px 20px

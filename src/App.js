@@ -91,6 +91,11 @@ export default class App extends Component {
                     src={episode.Image}
                     alt={`Episode ${episode.EpisodeNumber}`}
                   />
+                  <img
+                    src='assets/play-small-player-w.svg'
+                    alt='play icon'
+                    className='episode__play'
+                  />
                 </div>
               </div>
             ))}

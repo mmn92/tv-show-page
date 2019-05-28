@@ -18,7 +18,16 @@ export const AccordionSection = props => {
     <div className={className}>
       <div className='section__header' onClick={props.onClick}>
         {props.label}
-        <div className='icon'>{!props.isOpen && 'ICON'}</div>
+        <div className='icon'>
+          {!props.isOpen && (
+            <img
+              src='assets/play-small-player-w.svg'
+              alt='play icon'
+              height='100%'
+              width='100%'
+            />
+          )}
+        </div>
       </div>
       {props.isOpen && <div className='section__content'>{props.children}</div>}
     </div>
