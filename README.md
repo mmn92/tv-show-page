@@ -1,8 +1,16 @@
+## tv show screen
+
+This project is a web page that shows the details screen for a tv show. All data is retrieved from an API.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+After downloading the files or cloning the repository, run the `npm install` command in the project directory, to install all dependencies.
 
 ### `npm start`
 
@@ -12,10 +20,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm run sass`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Turns on the watcher to keep compiling the `.sass` files into a `.css` file, everytime a modification is detected.
 
 ### `npm run build`
 
